@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FoundU · AI 猎头 Agent 平台全景</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
+<style>
+  :root {
+    --bg: #0d1117; --panel: #161b22; --border: #30363d;
+    --text: #e6edf3; --muted: #8b949e; --accent: #58a6ff; --accent2: #f78166;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7;
+  }
+  .hero { text-align: center; padding: 72px 24px 48px; background: radial-gradient(ellipse at top, #1a2233 0%, var(--bg) 70%); }
+  .hero h1 { font-size: 2.4rem; letter-spacing: 0.02em; }
+  .hero h1 span { color: var(--accent); }
+  .hero p.tagline { color: var(--accent2); font-size: 1.15rem; margin-top: 12px; }
+  .hero p.sub { color: var(--muted); margin-top: 10px; max-width: 640px; margin-inline: auto; }
+  nav { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; padding: 18px; position: sticky; top: 0; background: rgba(13,17,23,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); z-index: 10; }
+  nav a { color: var(--muted); text-decoration: none; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border); font-size: .9rem; }
+  nav a:hover { color: var(--text); border-color: var(--accent); }
+  main { max-width: 1080px; margin: 0 auto; padding: 24px; }
+  section { margin: 56px 0; }
+  h2 { font-size: 1.5rem; border-left: 4px solid var(--accent); padding-left: 14px; margin-bottom: 8px; }
+  h3 { font-size: 1.1rem; color: var(--accent); margin: 24px 0 8px; }
+  p.desc { color: var(--muted); margin-bottom: 18px; }
+  .card { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 24px; overflow-x: auto; }
+  .card + .card { margin-top: 18px; }
+  .notes { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-top: 18px; }
+  .note { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; font-size: .92rem; color: var(--muted); }
+  .note b { color: var(--text); }
+  table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: .92rem; }
+  th, td { border: 1px solid var(--border); padding: 10px 14px; text-align: left; }
+  th { background: #1c2333; color: var(--accent); }
+  td { color: var(--muted); }
+  footer { text-align: center; color: var(--muted); padding: 48px 24px; font-size: .85rem; border-top: 1px solid var(--border); margin-top: 64px; }
+  footer a { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>FoundU · <span>AI 猎头 Agent 平台</span>全景</h1>
+  <p class="tagline">一套会随每次人工纠正而变聪明的 AI 猎头操作系统</p>
+  <p class="sub">候选人获取、评估、访谈、客户画像挖掘、匹配推荐、交付跟进——交给多 Agent 系统承载；人只留在访谈和关键决策上。</p>
+</div>
+
+<nav>
+  <a href="#business">业务流</a>
+  <a href="#dataflow">数据流</a>
+  <a href="#disclosure">披露引擎</a>
+  <a href="#evolution">自进化体系</a>
+  <a href="#roadmap">路线图</a>
+</nav>
+
+<main>
+
+<section id="business">
+  <h2>一、业务流：两条循环，在匹配引擎交汇</h2>
+  <p class="desc">人才侧循环负责「把人看准」，企业侧循环负责「把需求挖透」，两条循环的产出在匹配引擎汇合。</p>
+
+  <h3>候选人循环（人才侧）</h3>
+  <div class="card">
+<pre class="mermaid">
+flowchart LR
+    A[多渠道获客<br/>公域平台 / KOL / 转介绍] --> B[截图快筛<br/>外包独立工具]
+    B -- ≥70 --> C[邮箱收简历<br/>AI 解析 + 打分入库]
+    C -- ≥80 --> D[预匹配待确认清单<br/>评分 × 岗位紧急度 × 新鲜度]
+    D --> E[人工勾选确认<br/>飞书日历自动排期]
+    E --> F[30 分钟结构化访谈<br/>AI 出定制大纲 · 飞书会议]
+    F --> G[AI 录音评分打标<br/>软素质标签 + 原话证据]
+    G --> H[人工校正]
+    H -- 85+ --> I[终匹配<br/>生成推荐清单]
+    I --> J[征得候选人同意<br/>推荐给企业]
+    J --> K[企业面反馈]
+    K -- 通过 --> L[推进 / 入职 / 3 个月回访]
+    K -- 不通过 --> M[口语化反馈安抚<br/>留存 + 转介绍]
+</pre>
+  </div>
+  <div class="notes">
+    <div class="note"><b>评分门控</b>：70 入库 / 80 进访谈队列 / 85 进推荐。按渠道可覆盖：KOL 加微即结 90、成交结算 60。</div>
+    <div class="note"><b>访谈护城河</b>：每位候选人最多 3 次访谈机会；访谈本身永远人工，AI 只出大纲和会前简报。</div>
+  </div>
+
+  <h3>客户循环（企业侧）</h3>
+  <div class="card">
+<pre class="mermaid">
+flowchart LR
+    A[客户访谈<br/>飞书会议] --> B[画像挖掘<br/>显式需求 + 隐性画像]
+    B --> C[48h 访谈报告<br/>B 端交付物]
+    C --> D{客户确认}
+    D -- 确认 --> E[卖点语料库<br/>拆成带披露层级的标签块]
+    E --> F1[创始人信着陆页<br/>在招岗位区自动更新]
+    E --> F2[JD 海报<br/>6 段式 + 尺度改写]
+    E --> F3[私域推荐语<br/>三段式 · 仅一对一]
+    E --> F4[分阶段触达语料<br/>首触/跟进/意向/约访]
+    D -- 未确认 --> B
+</pre>
+  </div>
+  <div class="notes">
+    <div class="note"><b>口径唯一铁律</b>：所有对外物料只能从客户确认过的语料生成；AI 每个论点必须标注语料出处，编造会被校验拦截。</div>
+  </div>
+</section>
+
+<section id="dataflow">
+  <h2>二、数据流：各平台之间怎么流转</h2>
+  <p class="desc">总原则：飞书存原件 + 承载人工协作；自有平台存衍生数据 + 承载智能。双向连接，团队零学习成本。</p>
+  <div class="card">
+<pre class="mermaid">
+flowchart TB
+    subgraph 通道层
+        MAIL[飞书邮箱]
+        MIN[飞书妙记<br/>录音转写]
+        BIT[飞书多维表格<br/>台账/看板/反馈表]
+        DOC[飞书云文档]
+        CAL[飞书日历/会议]
+        WX[微信<br/>候选人触达]
+    end
+
+    subgraph 自有平台【数据主线】
+        PG[(PostgreSQL + pgvector<br/>结构化画像 + 向量)]
+        SM[状态机编排器]
+        ENG[披露引擎<br/>所有对外出口必经]
+        ME[匹配引擎<br/>三路召回 + 证据链]
+        EV[评估系统<br/>漏斗 + 一致率]
+    end
+
+    subgraph 对外
+        WEB[极简 Web 入口]
+        MCP[MCP Server<br/>外部 Agent 生态]
+        SCREEN[快筛工具<br/>独立部署]
+    end
+
+    MAIL -->|简历 PDF 指针| PG
+    MIN -->|转写文本落库| PG
+    BIT -->|台账与客户反馈<br/>变更监听| PG
+    SCREEN -->|快筛分 + 模糊字段<br/>模糊匹配归并| PG
+    WEB -->|主动投递| PG
+    MCP -->|按披露等级裁剪返回| PG
+
+    PG --> SM
+    SM -->|评分/打标/清单| BIT
+    SM -->|排期/会议链接| CAL
+    SM -->|触达语料经披露引擎| WX
+    ME --> PG
+    EV --> PG
+    BIT -->|人工校正 diff| EV
+    DOC -.原件留存.- PG
+</pre>
+  </div>
+  <div class="notes">
+    <div class="note"><b>原件不落自有平台</b>——PDF、录音留在飞书，只存指针；转写文本属衍生层必须落库，避免实时依赖飞书 API。</div>
+    <div class="note"><b>人工校正回流</b>——在飞书看板改了 AI 的评分，diff 自动进评估集，宁可多收不可漏收。</div>
+    <div class="note"><b>对外必经披露引擎</b>——着陆页、微信语料、MCP 返回，统一按「候选人状态 × 信息块层级」裁剪，禁止绕行。</div>
+  </div>
+</section>
+
+<section id="disclosure">
+  <h2>三、披露引擎：一套规则管住所有出口</h2>
+  <p class="desc">候选人状态（漏斗阶段）× 信息块层级（语料标签）两轴正交，渐进式披露——让候选人自我筛选，同时完成一次信息交换。</p>
+  <div class="card">
+<pre class="mermaid">
+flowchart LR
+    subgraph 候选人状态
+        L0[L0 路人<br/>未提交资料]
+        L1[L1 登记者<br/>简历入库]
+        L2[L2 深匹配<br/>引擎筛出]
+        L3[L3 定向候选<br/>已访谈被推荐]
+    end
+    subgraph 信息块层级
+        B1[L1 公域<br/>公司概况 / 硬信息 / 创始人风格]
+        B2[L2 私域岗位<br/>发展细节 / 成长路径]
+        B3[L3 私域创始人<br/>背景故事 / 面试流程]
+    end
+    L0 --> B1
+    L1 --> B1 --> B2
+    L2 --> B2
+    L3 --> B3
+</pre>
+  </div>
+  <table>
+    <tr><th>机制</th><th>规则</th></tr>
+    <tr><td>置换原则</td><td>创始人细节是最核心筹码——没投简历就不给，避免对方「拿语料做选择」，信息多的一方占优</td></tr>
+    <tr><td>尺度规则内置</td><td>薪酬带宽化（30K → 20-40K）、年龄放宽区间、「高频出差」→「全球飞」</td></tr>
+    <tr><td>双口径证据链</td><td>内部含负面扣分细节；候选人侧只见卖点与准备建议</td></tr>
+  </table>
+</section>
+
+<section id="evolution">
+  <h2>四、自进化体系：三个组件构成闭环</h2>
+  <p class="desc">核心思路：不训练模型，进化的是规则、prompt、权重、阈值。每个人工纠正都让系统更聪明一点。</p>
+  <div class="card">
+<pre class="mermaid">
+flowchart TB
+    subgraph S1[评估集 · 自动生长]
+        C1[简历评分库]
+        C2[访谈打标库]
+        C3[语料生成库]
+        C4[匹配推荐库]
+    end
+    subgraph S2[回归闸门 · 改动必过]
+        R[改 prompt / 权重 / 阈值<br/>→ 先跑全量评估集<br/>→ AI-人一致率不降才上线]
+    end
+    subgraph S3[漏斗仪表盘 · 方向盘]
+        F[八段漏斗：获取→入库→访谈→85+→推荐→约面→推进→成交<br/>每段两个数字：通过率 + AI-人一致率<br/>周报自动排序「最值得优化的环节」]
+    end
+    W[运营在飞书看板<br/>人工校正 AI 产出] -->|diff 自动捕获| S1
+    K[客户反馈表<br/>要 / 不要 / 原因] -->|负反馈：不匹配维度分析| S1
+    K -->|正反馈：通过者共同画像| S1
+    S1 --> R
+    F -->|指出改哪里| R
+    R -->|上线更优版本| W
+    F -->|周报给团队| W
+</pre>
+  </div>
+  <table>
+    <tr><th>机制</th><th>做法</th></tr>
+    <tr><td>校正即标注</td><td>每个 AI 产出字段带四元组 ai_value / human_value / corrected_at / corrector——人改一次，评估集多一条</td></tr>
+    <tr><td>权重版本化</td><td>匹配权重带版本号，改动必须先过回归才能激活，防止「改一处坏三处」</td></tr>
+    <tr><td>双回流路径</td><td>负反馈（拒绝原因）→ 不匹配维度分析反向修正；正反馈（通过者画像）→ 迭代权重与客户画像</td></tr>
+    <tr><td>冷启动</td><td>前期权重用人工推荐先验配置——系统第一天就能跑，每跑一次都在积累训练数据</td></tr>
+  </table>
+</section>
+
+<section id="roadmap">
+  <h2>五、阶段路线：每一步业务不停</h2>
+  <p class="desc">新旧流程并行打分，AI-人一致率报表就是切换的决策依据。</p>
+  <div class="card">
+<pre class="mermaid">
+flowchart LR
+    P1[第 1 期<br/>底座 + 并行验证<br/>数据迁移 / 流水线 / 披露引擎 / 匹配引擎]
+    P2[第 2 期<br/>接管编排<br/>飞书退为人审界面]
+    P3[第 3 期<br/>内部工作台]
+    P4[第 4 期<br/>MCP 对外 + C 端入口]
+    P5[后续<br/>做题评估 / 转介绍 / 增值服务]
+    P1 --> P2 --> P3 --> P4 --> P5
+</pre>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  FoundU AI 猎头 Agent 平台 · 全景图谱 ｜
+  工程仓库：<a href="https://github.com/JennyCC567/foundu-platform">github.com/JennyCC567/foundu-platform</a>
+</footer>
+
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'dark',
+    themeVariables: {
+      primaryColor: '#1c2333',
+      primaryTextColor: '#e6edf3',
+      primaryBorderColor: '#58a6ff',
+      lineColor: '#8b949e',
+      fontSize: '14px'
+    },
+    flowchart: { curve: 'basis' }
+  });
+</script>
+</body>
+</html>
