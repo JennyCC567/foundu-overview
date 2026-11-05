@@ -122,7 +122,7 @@ flowchart TB
         WX[微信<br/>候选人触达]
     end
 
-    subgraph 自有平台【数据主线】
+    subgraph PT["自有平台 · 数据主线"]
         PG[(PostgreSQL + pgvector<br/>结构化画像 + 向量)]
         SM[状态机编排器]
         ENG[披露引擎<br/>所有对外出口必经]
@@ -150,7 +150,7 @@ flowchart TB
     ME --> PG
     EV --> PG
     BIT -->|人工校正 diff| EV
-    DOC -.原件留存.- PG
+    DOC -. 原件留存 .- PG
 </pre>
   </div>
   <div class="notes">
@@ -197,16 +197,16 @@ flowchart LR
   <div class="card">
 <pre class="mermaid">
 flowchart TB
-    subgraph S1[评估集 · 自动生长]
+    subgraph S1["评估集 · 自动生长"]
         C1[简历评分库]
         C2[访谈打标库]
         C3[语料生成库]
         C4[匹配推荐库]
     end
-    subgraph S2[回归闸门 · 改动必过]
+    subgraph S2["回归闸门 · 改动必过"]
         R[改 prompt / 权重 / 阈值<br/>→ 先跑全量评估集<br/>→ AI-人一致率不降才上线]
     end
-    subgraph S3[漏斗仪表盘 · 方向盘]
+    subgraph S3["漏斗仪表盘 · 方向盘"]
         F[八段漏斗：获取→入库→访谈→85+→推荐→约面→推进→成交<br/>每段两个数字：通过率 + AI-人一致率<br/>周报自动排序「最值得优化的环节」]
     end
     W[运营在飞书看板<br/>人工校正 AI 产出] -->|diff 自动捕获| S1
